@@ -1,0 +1,10 @@
+black
+dj-database-url
+Django
+django-debug-toolbar
+gunicorn
+Pillow
+pylint
+python-decouple
+psycopg2
+whitenoise
