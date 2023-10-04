@@ -19,8 +19,57 @@
     <div class="hero_img">
       <img src="{% static 'app/img/header_img.png' %}" alt="header_img" />
       <div class="hero_text">
-        <h1>Together we can <br> create a better society</h1>
+        <h1>
+          Together we can <br />
+          create a better society
+        </h1>
         <button>Join us now</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="about_us">
+    <div class="container flex">
+      <div class="about_us_img">
+        <img src="{% static 'app/img/about_us_img.png' %}" alt="" />
+      </div>
+      <div class="about_us_text">
+        <h1>About us</h1>
+        <p>
+          SEO stttt other search engines. The better visibility your pages have
+          in search results, the more likely you are to garner attention a
+          attract prospective and existing customers to your business. (Double
+          it) SEO stands for “search engine optimization.” In simple terms, it
+          means the process of improving your site to increase its visibility
+          when people search for products or services related to your business
+          in Google, Bing, and other search engines. The better visibility your
+          pages have in search results, the more likely you are to garner
+          attention and attract prospective and existing customers to your
+          business. (Double it) SEO stands for “search engine optimization.” In
+          simple terms, it means the process of improving your site to increase
+          its visibility when people search for products or services related to
+          your business in Google, Bing, and other search engines. The better
+          visibility your pages have in search results, the more likely you are
+          to garner attention and attract prospective and existing customers to
+          your business. (Double it).. The better visibility your pages have in
+          search results, the more likely you are to garner attention and
+          attract prospective and existing customers to your business. (Double
+          it).. The better visibility your pages have in search results, the
+          more likely
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="category">
+    <div class="container">
+        <h1>Category</h1>
+        <div class="grid">
+        {% for card_data in card_data_list %} 
+            {% with card_data=card_data %} 
+                {% include 'app/card.html' %} 
+            {% endwith %} 
+        {% endfor %}
       </div>
     </div>
   </section>
