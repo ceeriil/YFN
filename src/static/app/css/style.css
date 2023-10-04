@@ -14,6 +14,8 @@ body {
   justify-content: space-between;
   height: 8vh;
   padding: 0 4rem;
+  background: #fff;
+  box-shadow: 0px 12px 60px 0px rgba(0, 0, 0, 0.25);
 }
 
 .nav_list {
@@ -48,6 +50,7 @@ body {
 .hero {
   width: 95%;
   margin: 0 auto;
+  padding-top: 1rem;
 }
 
 .hero_img {
@@ -351,36 +354,36 @@ footer .nav_list button:hover {
 }
 
 footer .flex {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    padding: 4rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 4rem 0;
 }
 
 footer .footer_links {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 3rem;
-    place-items: center;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 3rem;
+  place-items: center;
 }
 
 footer .footer_links h2 {
-    font-size: 1rem;
-    font-weight: 400;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 footer .footer_links ul li {
-    list-style: none;
+  list-style: none;
 }
 
 footer .copyright {
-    background: #000;
-    padding: 2rem;
-    color: #fff;
-    margin-top: 4rem;
+  background: #000;
+  padding: 2rem;
+  color: #fff;
+  margin-top: 4rem;
 }
 
 footer .copyright h2 {
-    font-size: 1rem;
-    font-weight: 400;
+  font-size: 1rem;
+  font-weight: 400;
 }
