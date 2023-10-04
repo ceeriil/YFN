@@ -1,3 +1,91 @@
-.link-color {
-    color: purple;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 8vh;
+  padding: 0 4rem;
+}
+
+.nav_list {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.nav ul {
+  display: flex;
+}
+
+.nav ul li {
+  list-style: none;
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+.nav_list button {
+  background: transparent;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #000;
+  cursor: pointer;
+  transition: all 300ms;
+}
+
+.nav_list button:hover {
+    background: #000;
+    color: #fff;
+}
+
+.hero {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.hero_img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+}
+
+.hero_img img {
+    width: 100%;
+}
+
+.hero_text {
+    position: absolute;
+    top: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.hero_text h1 {
+    color: #fff;
+    font-size: 4rem;
+    text-align: center;
+}
+
+.hero_text button {
+    background-color: #fff;
+    border: 0;
+    color: #000;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: all 300ms;
+}
+
+.hero_text button:hover {
+    transform: scale(1.1);
 }

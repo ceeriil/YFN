@@ -1,8 +1,28 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block content %} {% load static %}
 
-{% block content %}
 <div>
-    <a class="link-color" href="{% url 'app:home' %}">Home</a>
-    <h1>Welcome!</h1>
+  <nav class="nav">
+    <h1>YFN</h1>
+    <div class="nav_list">
+      <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Categories</li>
+        <li>Trending</li>
+        <li>Contact Us</li>
+      </ul>
+      <button>Sign Up</button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero_img">
+      <img src="{% static 'app/img/header_img.png' %}" alt="header_img" />
+      <div class="hero_text">
+        <h1>Together we can <br> create a better society</h1>
+        <button>Join us now</button>
+      </div>
+    </div>
+  </section>
 </div>
 {% endblock content %}
