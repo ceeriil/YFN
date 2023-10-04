@@ -1,0 +1,13 @@
+<!-- app/templates/app/card.html -->
+{% block content %} {% load static %}
+<div class="trending_card">
+  <div class="trending_card_img">
+    <img src="{{ trending_data.image_url }}" alt="{{ trending.alt_text }}" />
+    <div class="card_text">
+      <h2>{{ trending_data.card_title }}</h2>
+      <p>{{ trending_data.desc }}</p>
+      <button>Know more</button>
+    </div>
+  </div>
+</div>
+{% endblock content %}
