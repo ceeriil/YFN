@@ -37,37 +37,37 @@ class HomeView(TemplateView):
                 'image_url': '/static/app/img/writers2.png',
                 'alt_text': 'Card 1',
                 'card_title': 'Writers',
-                'desc': 'tands for “search engine dnjjsjjsjsj optimization.” In simple terms, it means the process of improving',
+                'desc': "Uncover a treasure trove of compelling narratives and fresh perspectives from today's trending writers.",
             },
             {
                 'image_url': '/static/app/img/creators2.png',
                 'alt_text': 'Card 2',
                 'card_title': 'Content Creators',
-                'desc': 'tands for “search engine dnjjsjjsjsj optimization.” In simple terms, it means the process of improving',
+                'desc': "Dive headfirst into an innovative world of content where creativity knows no bounds, courtesy of the trendsetters in our community.",
             },
             {
                 'image_url': '/static/app/img/gossip.png',
                 'alt_text': 'Card 3',
                 'card_title': 'Gossip',
-                'desc': 'tands for “search engine dnjjsjjsjsj optimization.” In simple terms, it means the process of improving',
+                'desc': 'Get your daily dose of excitement with the juiciest stories and the most buzz-worthy gossip circulating in the entertainment world.',
             },
             {
                 'image_url': '/static/app/img/enterpreneur2.png',
                 'alt_text': 'Card 4',
                 'card_title': 'Enterpreneur',
-                'desc': 'tands for “search engine dnjjsjjsjsj optimization.” In simple terms, it means the process of improving',
+                'desc': "Embark on a journey of innovation and inspiration with the stories of entrepreneurs who are reshaping the business landscape and setting trends.",
             },
             {
                 'image_url': '/static/app/img/fashion.png',
                 'alt_text': 'Card 5',
                 'card_title': 'Fashion',
-                'desc': 'tands for “search engine dnjjsjjsjsj optimization.” In simple terms, it means the process of improving',
+                'desc': "Elevate your style with a glimpse into the latest trends and timeless elegance, crafted by the fashion visionaries of our time.",
             },
             {
                 'image_url': '/static/app/img/artists2.png',
                 'alt_text': 'Card 6',
                 'card_title': 'Artists',
-                'desc': 'tands for “search engine dnjjsjjsjsj optimization.” In simple terms, it means the process of improving',
+                'desc': 'Step into a realm of creativity and expression, where every stroke and shade tells a story, as created by the trending artists of our vibrant community.',
             },
         ]
 
