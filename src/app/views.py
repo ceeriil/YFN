@@ -78,5 +78,10 @@ class HomeView(TemplateView):
 
 
 def signup(request):
-    
     return render(request, f"{NAME}/signup.html")
+
+def login(request):
+    return render(request, f"{NAME}/login.html")
+
+def blog(request):
+    return render(request, f"{NAME}/blog.html")

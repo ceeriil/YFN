@@ -521,6 +521,15 @@ footer .copyright h2 {
   border: 1px solid #000;
 }
 
+.signup_form .form button a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.signup_form .form button a:hover {
+  color: #000;
+}
+
 .signup_form .form button:hover {
   background: #fff;
   color: #000;
@@ -585,4 +594,19 @@ footer .copyright h2 {
 .signup_form .account span {
   font-weight: 600;
   cursor: pointer;
+}
+
+.login_form {
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+.login_bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login_google, .login_facebook, .login_apple {
+  gap: 2rem !important;
 }

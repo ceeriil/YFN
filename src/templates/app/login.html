@@ -1,28 +1,17 @@
 {% extends "base.html" %} {% block content %} {% load static %}
 
 <div>
-  <div class="signup_bg">
-    <div class="signup_grid">
-      <div class="signup_text">
-        <h1>YFN</h1>
-        <h3>Building the Future...</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo voluptas
-          recusandae accusantium maiores, et quisquam inventore eveniet aliquam
-          cumque magnam.
-        </p>
-      </div>
-
-      <div class="signup_form">
-        <h2>Let's get you started</h3>
-        <h1>Create an Account</h3>
+    <div class="signup_bg login_bg">
+    <div class="signup_form login_form">
+        
+        <h1>Login</h3>
 
         <form class="form">
-          <input type="text" placeholder="Your Name" />
+          
           <input type="email" placeholder="Email" />
           <input type="password" placeholder="Password" />
           <button>
-            <a href="{% url 'login' %}">Get Started</a>
+            <a href="{% url 'blog' %}">Login</a>
           </button>
         </form>
 
@@ -34,7 +23,7 @@
         </div>
 
         <div class="signup_socials">
-          <div class="google">
+          <div class="google login_google">
             <svg
               width="18"
               height="18"
@@ -80,10 +69,10 @@
                 />
               </g>
             </svg>
-            <p>Sign up with Google</p>
+            <p>Login with Google</p>
           </div>
 
-          <div class="facebook">
+          <div class="facebook login_facebook">
             <svg
               width="18"
               height="18"
@@ -117,10 +106,10 @@
                 />
               </g>
             </svg>
-            <p>Sign up with Facebook</p>
+            <p>Login with Facebook</p>
           </div>
 
-          <div class="apple">
+          <div class="apple login_apple">
             <svg
               width="14"
               height="18"
@@ -148,14 +137,10 @@
                 />
               </g>
             </svg>
-            <p>Sign up with Apple</p>
+            <p>Login with Apple</p>
           </div>
-        </div>
-        <div class="account">
-          <h3>Already have an account? <span>Login here.</span></h3>
         </div>
       </div>
     </div>
-  </div>
 </div>
 {% endblock content %}
