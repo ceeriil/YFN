@@ -1,7 +1,7 @@
 # from django.shortcuts import render
 from django.views.generic import TemplateView
 from app.vars import NAME
-
+from django.shortcuts import render
 
 class HomeView(TemplateView):
     template_name = f"{NAME}/home.html"
@@ -74,3 +74,9 @@ class HomeView(TemplateView):
         context['card_data_list'] = card_data_list
         context['trending_card_list'] = trending_card_list
         return context
+
+
+
+def signup(request):
+    
+    return render(request, f"{NAME}/signup.html")
