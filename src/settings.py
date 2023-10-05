@@ -6,3 +6,5 @@ TEMPLATES = [
         # ...
     },
 ]
+
+STATICFILES_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.svg', '.gif']
