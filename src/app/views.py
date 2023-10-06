@@ -2,6 +2,7 @@
 from django.views.generic import TemplateView
 from app.vars import NAME
 from django.shortcuts import render
+from .models import PostModel
 
 class HomeView(TemplateView):
     template_name = f"{NAME}/home.html"
@@ -84,5 +85,6 @@ def login(request):
     return render(request, f"{NAME}/login.html")
 
 def blog(request):
-    return render(request, f"{NAME}/blog.html")
+    posts = PostModel.objects.all() 
+    return render(request, "app/blog.html", {'posts': posts})
     
