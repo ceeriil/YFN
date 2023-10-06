@@ -85,3 +85,4 @@ def login(request):
 
 def blog(request):
     return render(request, f"{NAME}/blog.html")
+    

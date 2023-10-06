@@ -1,6 +1,368 @@
 {% extends "base.html" %} {% block content %} {% load static %}
 
 <div>
-  <h1>Blog</h1>
+  <nav class="feed_nav">
+    <div class="feed_profile">
+      <img src="{% static 'app/img/user_pic.svg' %}" alt="" />
+    </div>
+    <div class="feed_logout">
+      <button>
+        <a href="{% url 'login' %}">Logout</a>
+      </button>
+    </div>
+  </nav>
+
+  <div class="feed">
+    <div class="left_side">
+      <h1>Trending</h1>
+      <ul class="links">
+        <li>Movies</li>
+        <li>Education</li>
+        <li>Tradition</li>
+        <li>Sports</li>
+        <li>Relationship</li>
+        <li>Marriages</li>
+        <li>Writers</li>
+        <li>Enterpreneur</li>
+        <li>Fashion</li>
+        <li>Politics</li>
+        <li>Artist</li>
+        <li>Gossip</li>
+        <li>Religion</li>
+      </ul>
+    </div>
+
+    <div class="main_feed">
+      <div class="main_feed_card">
+        <div class="card_head">
+          <img src="{% static 'app/img/user_pic.svg' %}" alt="" />
+          <h1>{user_name}</h1>
+        </div>
+        <div class="card_content">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi
+            animi dolorum sequi soluta, quam impedit magni molestiae qui
+            assumenda aperiam?
+          </p>
+        </div>
+        <div class="card_stats">
+          <div class="comment">
+            <img src="{% static 'app/img/comment.svg' %}" alt="">
+            <h4>45</h4>
+          </div>
+
+          <div class="repost">
+            <img src="{% static 'app/img/repost.svg' %}" alt="">
+            <h4>20</h4>
+          </div>
+
+
+          <div class="like">
+            <img src="{% static 'app/img/like.svg' %}" alt="">
+            <h4>5k</h4>
+          </div>
+
+          <div class="share">
+            <img src="{% static 'app/img/share.svg' %}" alt="">
+            <h4>11</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="main_feed_card">
+        <div class="card_head">
+          <img src="{% static 'app/img/user_pic.svg' %}" alt="" />
+          <h1>{user_name}</h1>
+        </div>
+        <div class="card_content">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi
+            animi dolorum sequi soluta, quam impedit magni molestiae qui
+            assumenda aperiam?
+          </p>
+        </div>
+        <div class="card_stats">
+          <div class="comment">
+            <img src="{% static 'app/img/comment.svg' %}" alt="">
+            <h4>45</h4>
+          </div>
+
+          <div class="repost">
+            <img src="{% static 'app/img/repost.svg' %}" alt="">
+            <h4>20</h4>
+          </div>
+
+
+          <div class="like">
+            <img src="{% static 'app/img/like.svg' %}" alt="">
+            <h4>5k</h4>
+          </div>
+
+          <div class="share">
+            <img src="{% static 'app/img/share.svg' %}" alt="">
+            <h4>11</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="main_feed_card">
+        <div class="card_head">
+          <img src="{% static 'app/img/user_pic.svg' %}" alt="" />
+          <h1>{user_name}</h1>
+        </div>
+        <div class="card_content">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi
+            animi dolorum sequi soluta, quam impedit magni molestiae qui
+            assumenda aperiam?
+          </p>
+        </div>
+        <div class="card_stats">
+          <div class="comment">
+            <img src="{% static 'app/img/comment.svg' %}" alt="">
+            <h4>45</h4>
+          </div>
+
+          <div class="repost">
+            <img src="{% static 'app/img/repost.svg' %}" alt="">
+            <h4>20</h4>
+          </div>
+
+
+          <div class="like">
+            <img src="{% static 'app/img/like.svg' %}" alt="">
+            <h4>5k</h4>
+          </div>
+
+          <div class="share">
+            <img src="{% static 'app/img/share.svg' %}" alt="">
+            <h4>11</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="main_feed_card">
+        <div class="card_head">
+          <img src="{% static 'app/img/user_pic.svg' %}" alt="" />
+          <h1>{user_name}</h1>
+        </div>
+        <div class="card_content">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi
+            animi dolorum sequi soluta, quam impedit magni molestiae qui
+            assumenda aperiam?
+          </p>
+        </div>
+        <div class="card_stats">
+          <div class="comment">
+            <img src="{% static 'app/img/comment.svg' %}" alt="">
+            <h4>45</h4>
+          </div>
+
+          <div class="repost">
+            <img src="{% static 'app/img/repost.svg' %}" alt="">
+            <h4>20</h4>
+          </div>
+
+
+          <div class="like">
+            <img src="{% static 'app/img/like.svg' %}" alt="">
+            <h4>5k</h4>
+          </div>
+
+          <div class="share">
+            <img src="{% static 'app/img/share.svg' %}" alt="">
+            <h4>11</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="main_feed_card">
+        <div class="card_head">
+          <img src="{% static 'app/img/user_pic.svg' %}" alt="" />
+          <h1>{user_name}</h1>
+        </div>
+        <div class="card_content">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi
+            animi dolorum sequi soluta, quam impedit magni molestiae qui
+            assumenda aperiam?
+          </p>
+        </div>
+        <div class="card_stats">
+          <div class="comment">
+            <img src="{% static 'app/img/comment.svg' %}" alt="">
+            <h4>45</h4>
+          </div>
+
+          <div class="repost">
+            <img src="{% static 'app/img/repost.svg' %}" alt="">
+            <h4>20</h4>
+          </div>
+
+
+          <div class="like">
+            <img src="{% static 'app/img/like.svg' %}" alt="">
+            <h4>5k</h4>
+          </div>
+
+          <div class="share">
+            <img src="{% static 'app/img/share.svg' %}" alt="">
+            <h4>11</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="main_feed_card">
+        <div class="card_head">
+          <img src="{% static 'app/img/user_pic.svg' %}" alt="" />
+          <h1>{user_name}</h1>
+        </div>
+        <div class="card_content">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi
+            animi dolorum sequi soluta, quam impedit magni molestiae qui
+            assumenda aperiam?
+          </p>
+        </div>
+        <div class="card_stats">
+          <div class="comment">
+            <img src="{% static 'app/img/comment.svg' %}" alt="">
+            <h4>45</h4>
+          </div>
+
+          <div class="repost">
+            <img src="{% static 'app/img/repost.svg' %}" alt="">
+            <h4>20</h4>
+          </div>
+
+
+          <div class="like">
+            <img src="{% static 'app/img/like.svg' %}" alt="">
+            <h4>5k</h4>
+          </div>
+
+          <div class="share">
+            <img src="{% static 'app/img/share.svg' %}" alt="">
+            <h4>11</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="main_feed_card">
+        <div class="card_head">
+          <img src="{% static 'app/img/user_pic.svg' %}" alt="" />
+          <h1>{user_name}</h1>
+        </div>
+        <div class="card_content">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi
+            animi dolorum sequi soluta, quam impedit magni molestiae qui
+            assumenda aperiam?
+          </p>
+        </div>
+        <div class="card_stats">
+          <div class="comment">
+            <img src="{% static 'app/img/comment.svg' %}" alt="">
+            <h4>45</h4>
+          </div>
+
+          <div class="repost">
+            <img src="{% static 'app/img/repost.svg' %}" alt="">
+            <h4>20</h4>
+          </div>
+
+
+          <div class="like">
+            <img src="{% static 'app/img/like.svg' %}" alt="">
+            <h4>5k</h4>
+          </div>
+
+          <div class="share">
+            <img src="{% static 'app/img/share.svg' %}" alt="">
+            <h4>11</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="main_feed_card">
+        <div class="card_head">
+          <img src="{% static 'app/img/user_pic.svg' %}" alt="" />
+          <h1>{user_name}</h1>
+        </div>
+        <div class="card_content">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi
+            animi dolorum sequi soluta, quam impedit magni molestiae qui
+            assumenda aperiam?
+          </p>
+        </div>
+        <div class="card_stats">
+          <div class="comment">
+            <img src="{% static 'app/img/comment.svg' %}" alt="">
+            <h4>45</h4>
+          </div>
+
+          <div class="repost">
+            <img src="{% static 'app/img/repost.svg' %}" alt="">
+            <h4>20</h4>
+          </div>
+
+
+          <div class="like">
+            <img src="{% static 'app/img/like.svg' %}" alt="">
+            <h4>5k</h4>
+          </div>
+
+          <div class="share">
+            <img src="{% static 'app/img/share.svg' %}" alt="">
+            <h4>11</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="main_feed_card">
+        <div class="card_head">
+          <img src="{% static 'app/img/user_pic.svg' %}" alt="" />
+          <h1>{user_name}</h1>
+        </div>
+        <div class="card_content">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi
+            animi dolorum sequi soluta, quam impedit magni molestiae qui
+            assumenda aperiam?
+          </p>
+        </div>
+        <div class="card_stats">
+          <div class="comment">
+            <img src="{% static 'app/img/comment.svg' %}" alt="">
+            <h4>45</h4>
+          </div>
+
+          <div class="repost">
+            <img src="{% static 'app/img/repost.svg' %}" alt="">
+            <h4>20</h4>
+          </div>
+
+
+          <div class="like">
+            <img src="{% static 'app/img/like.svg' %}" alt="">
+            <h4>5k</h4>
+          </div>
+
+          <div class="share">
+            <img src="{% static 'app/img/share.svg' %}" alt="">
+            <h4>11</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="right_side">
+      <div class="search">
+        <input type="search" placeholder="search...">
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock content %}
