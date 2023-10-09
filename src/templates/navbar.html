@@ -8,8 +8,14 @@
       <li>Trending</li>
       <li>Contact Us</li>
     </ul>
+    {% if request.user.is_authenticated %}
     <button>
-      <a href="{% url 'signup' %}">Sign Up</a>
+      <a href="#">Logout</a>
     </button>
+    {% else %}
+    <button>
+      <a href="{% url 'users-sign-up' %}">Sign Up</a>
+    </button>
+    {% endif %}
   </div>
 </nav>

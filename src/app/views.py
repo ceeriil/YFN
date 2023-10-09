@@ -1,8 +1,9 @@
 # from django.shortcuts import render
 from django.views.generic import TemplateView
 from app.vars import NAME
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import PostModel
+from .forms import PostModelForm
 
 class HomeView(TemplateView):
     template_name = f"{NAME}/home.html"
@@ -81,10 +82,28 @@ class HomeView(TemplateView):
 def signup(request):
     return render(request, f"{NAME}/signup.html")
 
-def login(request):
-    return render(request, f"{NAME}/login.html")
-
 def blog(request):
-    posts = PostModel.objects.all() 
-    return render(request, "app/blog.html", {'posts': posts})
+    posts = PostModel.objects.all()
+    if request.method == 'POST': 
+        form = PostModelForm(request.POST)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.author = request.user
+            instance.save()
+            return redirect('blog')
+
+    else:
+        form = PostModelForm()
+       
+    context = {
+        'posts': posts,
+        'form': form
+    }
+
+    return render(request, "app/blog.html", context)
+
+def post_detail(request, pk):
+    posts = PostModel.objects.all()
+    return render(request, f"{NAME}/post_detail.html",  {'posts': posts})
+
     

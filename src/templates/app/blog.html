@@ -3,11 +3,13 @@
 <div>
   <nav class="feed_nav">
     <div class="feed_profile">
-      <img src="{% static 'app/img/user_pic.svg' %}" alt="" />
+      <a href="{% url 'users-profile' %}">
+        <img src="{% static 'app/img/user_pic.svg' %}" alt="" />
+      </a>
     </div>
     <div class="feed_logout">
       <button>
-        <a href="{% url 'login' %}">Logout</a>
+        <a href="{%url 'users-logout'%}">Logout</a>
       </button>
     </div>
   </nav>
@@ -36,11 +38,13 @@
       {% for post in posts %}
       <div class="main_feed_card">
         <div class="card_head">
-          <img src="{% static 'app/img/user_pic.svg' %}" alt="" />
+          <img src="{{ post.author.profilemodel.image.url }}" alt="" />
           <h1>{user_name}</h1>
         </div>
         <div class="card_content">
-          <a href="#"> <h3>{{ post.title }}</h3></a>
+          <a href="{% url 'post-detail' post.id %}">
+            <h3>{{ post.title }}</h3></a
+          >
           <p>{{ post.content }}</p>
           <small>{{post.date_created}}</small>
         </div>
@@ -107,12 +111,15 @@
       </div>
     </div>
 
-    <div class="right_side">
+    <div class="right_side bg-black">
       <div class="search">
         <input type="search" placeholder="search..." />
       </div>
 
-      <form action="#">Add Post</form>
+      <form method="POST">
+        {% csrf_token %} {{form}}
+        <input class="btn" type="submit" value="Post" />
+      </form>
     </div>
   </div>
 </div>

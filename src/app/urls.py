@@ -8,6 +8,6 @@ app_name = NAME
 urlpatterns = [
     path("", HomeView.as_view(), name="home"),
     path('signup/', views.signup, name='signup'),
-    path('login/', views.login, name='login'),
     path('blog/', views.blog, name='blog'),
-]
+    path('post_detail/<int:pk>/', views.post_detail, name='post-detail'),
+] 
