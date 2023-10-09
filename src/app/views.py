@@ -3,7 +3,7 @@ from django.views.generic import TemplateView
 from app.vars import NAME
 from django.shortcuts import render, redirect
 from .models import PostModel
-from .forms import PostModelForm
+from .forms import PostModelForm,PostUpdateForm
 
 class HomeView(TemplateView):
     template_name = f"{NAME}/home.html"
@@ -100,10 +100,32 @@ def blog(request):
         'form': form
     }
 
-    return render(request, "app/blog.html", context)
+    return render(request, f"{NAME}/blog.html", context)
 
 def post_detail(request, pk):
-    posts = PostModel.objects.all()
-    return render(request, f"{NAME}/post_detail.html",  {'posts': posts})
+    post = PostModel.objects.get(id=pk)
+    if request.method == 'POST':
+            return redirect('blog-post-detail', pk=post.id)
+    else:
+     context = {
+        'post': post,
+    }
+    return render(request, f"{NAME}/post_detail.html", context)
+
+def post_edit(request, pk):
+    post = PostModel.objects.get(id=pk)
+    if request.method == 'POST':
+        form = PostUpdateForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('post-detail', pk=post.id)
+    else:
+        form = PostUpdateForm(instance=post)
+    context = {
+        'post': post,
+        'form': form,
+    }
+    return render(request, 'app/post_edit.html', context)
+
 
     

@@ -1,0 +1,35 @@
+{% extends "base.html" %} {% block content %} {% load static %}
+
+<div>
+  <nav class="feed_nav">
+    <div class="feed_profile">
+      <a href="{% url 'users-profile' %}">
+        <img src="{% static 'app/img/user_pic.svg' %}" alt="" />
+      </a>
+    </div>
+    <div class="feed_logout">
+      <button>
+        <a href="{%url 'users-logout'%}">Logout</a>
+      </button>
+    </div>
+  </nav>
+
+  <div>
+    <img
+      class="img-thumbnail"
+      src="{{ post.author.profilemodel.image.url }}"
+      alt="profile-img"
+    />
+    <div>
+      <small>{{ post.date_created }}</small>
+      {% if post.author == request.user %}
+      <span><a class="btn-primary" href="">Delete</a></span>
+      <span><a class="btn-primary" href="">Edit</a></span>
+      {% endif %}
+      <hr />
+      <h4>{{ post.title }}</h4>
+      <p>{{ post.content }}</p>
+    </div>
+  </div>
+</div>
+{% endblock content %}

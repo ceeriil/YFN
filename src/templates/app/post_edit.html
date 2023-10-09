@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block content %} {% load static %}
+
+<div>
+  <nav class="feed_nav">
+    <div class="feed_profile">
+      <a href="{% url 'users-profile' %}">
+        <img src="{% static 'app/img/user_pic.svg' %}" alt="" />
+      </a>
+    </div>
+    <div class="feed_logout">
+      <button>
+        <a href="{%url 'users-logout'%}">Logout</a>
+      </button>
+    </div>
+  </nav>
+
+  <div>
+    <form method="POST">
+      {% csrf_token %} {{ form }}
+      <input class="btn-primary" type="submit" value="Save" />
+    </form>
+  </div>
+</div>
+{% endblock content %}
