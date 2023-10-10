@@ -1,0 +1,15 @@
+{% extends "base.html" %} {% block content %} {% load static %}
+
+<div>
+    <h4>Edit Profile Information</h4>
+    <img
+      class="img-thumbnail"
+      src="{{ user.profilemodel.image.url }}"
+      alt=""
+    />
+
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %} {{ u_form }} {{ p_form }}
+      <button type="submit" class="btn-primary">Save</button>
+    </form>
+  </div>

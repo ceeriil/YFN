@@ -4,7 +4,11 @@
   <nav class="feed_nav">
     <div class="feed_profile">
       <a href="{% url 'users-profile' %}">
-        <img src="{% static 'app/img/user_pic.svg' %}" alt="" />
+        <img
+        class="img-thumbnail"
+        src="{{ user.profilemodel.image.url }}"
+        alt=""
+      />
       </a>
     </div>
     <div class="feed_logout">
@@ -51,22 +55,22 @@
         <div class="card_stats">
           <div class="comment">
             <img src="{% static 'app/img/comment.svg' %}" alt="" />
-            <h4>45</h4>
+            <!-- <h4>45</h4> -->
           </div>
 
           <div class="repost">
             <img src="{% static 'app/img/repost.svg' %}" alt="" />
-            <h4>20</h4>
+            <!-- <h4>20</h4> -->
           </div>
 
           <div class="like">
             <img src="{% static 'app/img/like.svg' %}" alt="" />
-            <h4>5k</h4>
+            <!-- <h4>5k</h4> -->
           </div>
 
           <div class="share">
             <img src="{% static 'app/img/share.svg' %}" alt="" />
-            <h4>11</h4>
+            <!-- <h4>11</h4> -->
           </div>
         </div>
       </div>

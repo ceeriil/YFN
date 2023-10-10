@@ -857,6 +857,17 @@ footer .copyright h2 {
   border: 1px solid #000;
 }
 
+.img-thumbnail {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.img-thumbnail img {
+  width: 100%;
+}
+
 /* Responsiveness */
 @media (max-width: 1200px) {
   .signup_grid {
