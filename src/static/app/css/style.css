@@ -539,7 +539,7 @@ footer .copyright h2 {
   border-radius: 0.3rem;
 }
 
-.signup_form .form button {
+.signup_form .form .btn {
   background: #000;
   color: #fff;
   border: 0;
@@ -1056,6 +1056,10 @@ footer .copyright h2 {
   
   .signup_form h2 {
     font-size: .8rem;
+  }
+
+  .login_form {
+    max-width: 95%;
   }
 }
 
