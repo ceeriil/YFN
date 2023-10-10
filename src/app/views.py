@@ -77,11 +77,6 @@ class HomeView(TemplateView):
         context['trending_card_list'] = trending_card_list
         return context
 
-
-
-def signup(request):
-    return render(request, f"{NAME}/signup.html")
-
 def blog(request):
     posts = PostModel.objects.all()
     if request.method == 'POST': 

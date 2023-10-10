@@ -1,136 +1,114 @@
-# Django Boilerplate Project
+# YFN
 
-A boilerplate project for Django to fast initialization.
+YFN is the ultimate platform where creators like artists and bloggers converge to share, connect, and grow. At the heart of our community lies a strong belief in the power of creativity and collaboration. Our platform provides an interactive space for creators to post their blog content, share their art, and interact with a like-minded community.
 
-All backend code follows [PEP8 style guidelines](https://www.python.org/dev/peps/pep-0008/).
+With YFN, we're building bridges between creators, fostering connections that inspire and amplify the creative process. So, whether you're an artist, a writer, or an enthusiast, YFN is your space to create, connect, and thrive.
 
-Useful Links
+Welcome to the YFN community – where every creator's voice is heard and valued.
 
-- [pycodestyle Error Codes](https://pycodestyle.pycqa.org/en/latest/intro.html#error-codes)
-- [flake8 Error Codes](https://flake8.pycqa.org/en/3.1.1/user/error-codes.html)
+## Developer Guide
 
-## Getting Started
+### How to run locally
 
-### Steps
+1. Clone the repository:
 
-- Clone/pull/download this repository.
-- Create virtual environment and install dependencies.
-- Configure the env variables. Use src/.env for development. For production, set them in the OS.
-- Rename the project.
+   ```sh
+   git clone https://github.com/ceeriil/YFN.git
+   ```
 
-```bash
-#Syntax
-python manage.py rename <current_project_name> <new_project_name>
+2. Navigate into the YFN directory:
 
-#Example
-python manage.py rename current_project my_project
-```
+   ```sh
+   cd YFN
+   ```
 
-5. Generate Secret Key
-Use this key as your SECRET_KEY.
-Replace SECRET_KEY in 'src/.env'.
+3. Ensure you have Python 3 installed on your machine. If not, download and install Python 3 from the official [Python website](https://www.python.org/).
 
-* Method 1
+4. Create a virtual environment:
 
-```bash
-python manage.py shell
-```
+   ```sh
+   python3 -m venv venv
+   ```
 
-```python
-from django.core.management.utils import get_random_secret_key
-print(get_random_secret_key())
-```
+5. Activate the virtual environment:
 
-* Method 2
+   - On Unix or MacOS, run:
+     ```sh
+     source venv/bin/activate
+     ```
+   - On Windows, run:
+     ```sh
+     .\venv\Scripts\activate
+     ```
 
-```bash
-python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
-```
+6. Install the requirements:
 
-#### Create Virtual Environment and Install Dependencies
+   ```sh
+   pip3 install -r requirements.txt
+   ```
 
-```bash
-python -m venv venv
-venv\Scripts\activate
-pip install -r requirements.txt
-pip freeze > requirements.txt
-```
+7. Create a superuser account:
 
-#### Key Dependencies
+   ```sh
+   python3 manage.py createsuperuser
+   ```
 
-- Django: A Python based web framework.
-- pillow: A library to manage images in Django Apps.
-- django-debug-toolbar: To manage debugging in development mode.
-- psycopg2: for managing postgres db
-- dj-database-url: for postgres db url
+8. Navigate into the `src` directory:
 
-#### Dependencies for heroku
+   ```sh
+   cd src
+   ```
 
-gunicorn: Server
-whitenoise: Simplified static file serving
+9. Make migrations:
 
-#### Important Package Versions
+   ```sh
+   python3 manage.py makemigrations
+   ```
 
-- python==3.9
-- Django==3.2
+10. Apply migrations:
 
-#### Optional Dependencies
+    ```sh
+    python3 manage.py migrate
+    ```
 
-- django-crispy-forms - A Library to integrate Django forms with Bootstrap.
-- django-allauth - Used for authentication.
-- django-countries - Used to list countries.
+11. Run the development server:
 
-##### Installation
+    ```sh
+    python3 manage.py runserver
+    ```
 
-`pip install django-crispy-forms, django-allauth, django-countries`
-> Included in requirements.txt - external installation not required.
+12. Visit `http://127.0.0.1:8000/admin` to make changes to the database.
 
-## Database Setup
+> **Note:** The project currently uses SQLite as the default database.
 
-### Development
+## Features
 
-SQLite database is used for development. It is configured automatically by Django.
+### Current Features
 
-### Production
+- Create an account
+- Login
+- Descriptive homepage
+- Profile update
+- Profile info page
+- Add a post
+- Edit a post
+- Delete a post
 
-With Postgres, create a database named **testdb**
-`createdb testdb`
-> Make sure to include the database credentials in **env_file.py**
+### Fixes Needed
 
-## Running the server
+- Fix stylings for all the pages
+- Make add post in a modal
 
-From the project directory to run the server, execute:
+### Features Needed
 
-```bash
-python manage.py migrate
-python manage.py runserver
-```
+- Update models for profile info to include bio, about, website link, Instagram link, Facebook link, location
+- Add search functionality
+- Add comment and like functionality
+- Expand post model
+- Possibly use rich text editor for post
 
-## Important Note
+Please raise an issue for any feature that needs to be added.
 
-- Uncomment '.env' inside .gitignore so that .env file is not uploaded in the repository.
-- Edit '.vscode/settings.json' ss per your choices.
-- You must generate a new secret key for your project.
+## Acknowledgments
 
-## Production Note
-
-- Make sure to set environmental variable DEBUG=False.
-
-## Author
-
-Himel Das
-
-## Acknowledgement
-
-This boilerplate is an extension of the boilerplate by justdjango. I studied the YouTube videos on this topic by JustDjango YouTube channel while creating this boilerplate.
-Thanks to justdjango for creating such an amazing boilerplate and step by step tutorial.
-
-* [Django Project Boilerplate by justdjango](https://github.com/justdjango/django_project_boilerplate)
-* [How to Create a Boilerplate for Django Project](https://www.youtube.com/watch?v=GEogao-tUec)
-
-## Note
-
-For special commands and detailed note refer to the following links:
-- [COMMANDS.md](docs/COMMANDS.md)
-- [NOTE.md](docs/NOTE.md)
-- [HEROKU.md](docs/HEROKU.md)
+This project uses Django Project Boilerplate by justdjango. Refer to [OLDREADME.md](docs/OLDREADME.md) to view the template README.

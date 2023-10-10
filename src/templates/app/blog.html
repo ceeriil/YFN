@@ -39,7 +39,7 @@
       <div class="main_feed_card">
         <div class="card_head">
           <img src="{{ post.author.profilemodel.image.url }}" alt="" />
-          <h1>{user_name}</h1>
+          <h1>{{ post.author.username }}</h1>
         </div>
         <div class="card_content">
           <a href="{% url 'app:post-detail' pk=post.id %}">
@@ -79,10 +79,12 @@
         <input type="search" placeholder="search..." />
       </div>
 
-      <form method="POST">
-        {% csrf_token %} {{form}}
-        <input class="btn" type="submit" value="Post" />
-      </form>
+      <div class="addpost">
+        <form method="POST">
+          {% csrf_token %} {{form}}
+          <input class="btn-primary" type="submit" value="Post" />
+        </form>
+      </div>
     </div>
   </div>
 </div>

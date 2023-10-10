@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
                 (
                     "image",
                     models.ImageField(
-                        default="default.jpg",
+                        default="default.png",
                         upload_to="profile",
                         validators=[
                             django.core.validators.FileExtensionValidator(

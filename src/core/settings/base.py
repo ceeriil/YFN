@@ -120,6 +120,8 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
+AUTH_PROFILE_MODULE = f"{PROJECT_NAME}.ProfileModel"
+
 CRISPY_TEMPLATE_PACK = 'uni_form'
 
 LOGIN_REDIRECT_URL = "blog"

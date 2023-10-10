@@ -19,7 +19,7 @@
 
           <form method="POST" class="form">
             {% csrf_token %} {{form}}
-            <input class="btn" type="submit" value="Sign Up" />
+            <input class="btn btn-primary" type="submit" value="Sign Up" />
           </form>
 
         <div class="line">
@@ -148,7 +148,7 @@
           </div>
         </div>
         <div class="account">
-          <h3>Already have an account? <span>Login here.</span></h3>
+          <h3>Already have an account? <span> <a href="{%url 'users-login' %}">Login here.</a></span></h3>
         </div>
       </div>
     </div>
