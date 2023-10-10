@@ -1,9 +1,9 @@
 # from django.shortcuts import render
 from django.views.generic import TemplateView
 from app.vars import NAME
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import PostModel
-from .forms import PostModelForm,PostUpdateForm
+from .forms import PostModelForm, PostUpdateForm
 
 class HomeView(TemplateView):
     template_name = f"{NAME}/home.html"
@@ -91,7 +91,6 @@ def blog(request):
             instance.author = request.user
             instance.save()
             return redirect('blog')
-
     else:
         form = PostModelForm()
        
@@ -102,15 +101,14 @@ def blog(request):
 
     return render(request, f"{NAME}/blog.html", context)
 
+
+
 def post_detail(request, pk):
     post = PostModel.objects.get(id=pk)
-    if request.method == 'POST':
-            return redirect('blog-post-detail', pk=post.id)
-    else:
-     context = {
+    context = {
         'post': post,
     }
-    return render(request, f"{NAME}/post_detail.html", context)
+    return render(request, 'app/post_detail.html', context)
 
 def post_edit(request, pk):
     post = PostModel.objects.get(id=pk)
@@ -118,14 +116,22 @@ def post_edit(request, pk):
         form = PostUpdateForm(request.POST, instance=post)
         if form.is_valid():
             form.save()
-            return redirect('post-detail', pk=post.id)
+            return redirect('blog-post-detail', pk=post.id)
     else:
         form = PostUpdateForm(instance=post)
     context = {
         'post': post,
         'form': form,
     }
-    return render(request, 'app/post_edit.html', context)
+    return render(request, f"{NAME}/post_edit.html", context)
 
 
-    
+def post_delete(request, pk):
+    post = PostModel.objects.get(id=pk)
+    if request.method == 'POST':
+        post.delete()
+        return redirect('blog')
+    context = {
+        'post': post
+    }
+    return render(request, 'app/post_delete.html', context)

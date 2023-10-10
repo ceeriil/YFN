@@ -14,21 +14,46 @@
     </div>
   </nav>
 
-  <div>
-    <img
-      class="img-thumbnail"
-      src="{{ post.author.profilemodel.image.url }}"
-      alt="profile-img"
-    />
-    <div>
-      <small>{{ post.date_created }}</small>
-      {% if post.author == request.user %}
-      <span><a class="btn-primary" href="">Delete</a></span>
-      <span><a class="btn-primary" href="">Edit</a></span>
-      {% endif %}
-      <hr />
-      <h4>{{ post.title }}</h4>
-      <p>{{ post.content }}</p>
+  <div class="feed">
+    <div class="left_side">
+      <h1>Trending</h1>
+      <ul class="links">
+        <li>Movies</li>
+        <li>Education</li>
+        <li>Tradition</li>
+        <li>Sports</li>
+        <li>Relationship</li>
+        <li>Marriages</li>
+        <li>Writers</li>
+        <li>Enterpreneur</li>
+        <li>Fashion</li>
+        <li>Politics</li>
+        <li>Artist</li>
+        <li>Gossip</li>
+        <li>Religion</li>
+      </ul>
+    </div>
+
+    <div class="main_feed">
+      <div class="post_details_card">
+        <img
+          class="img-thumbnail"
+          src="{{ post.author.profilemodel.image.url }}"
+          alt="profile-img"
+        />
+        <div>
+          <small>{{ post.date_created }}</small>
+          <hr />
+          <h4>{{ post.title }}</h4>
+          <p>{{ post.content }}</p>
+        </div>
+        <div class="btn_container">
+          {% if post.author == request.user %}
+          <span><a class="btn-primary" href="">Delete</a></span>
+          <span><a class="btn-primary" href="">Edit</a></span>
+          {% endif %}
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -22,6 +22,10 @@ a {
   color: inherit;
 }
 
+.btn-primary {
+  display: inline-block;
+}
+
 .nav {
   display: flex;
   align-items: center;
@@ -786,4 +790,22 @@ footer .copyright h2 {
     );
   background-size: 50px 50px;
   border-style: none;
+}
+
+/* ------ Post details --------------- */
+.post_details_card {
+  border: 1px solid #000;
+  padding: 3rem;
+  width: 100%;
+}
+
+.post_details_card .img-thumbnail {
+  width: 50px;
+  height: 50px;
+  display: block;
+  border-radius: 50%;
+}
+
+.post_details_card .btn_container {
+  margin-top: 1rem;
 }

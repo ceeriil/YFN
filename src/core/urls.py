@@ -26,7 +26,7 @@ urlpatterns = [
     path("", include(f"{MAIN_APP}.urls", namespace=MAIN_APP)),
     path('signup/', views.signup, name='signup'),
     path('blog/', views.blog, name='blog'),
-      path('', include('users.urls'))
+    path('', include('users.urls')),
 ]
 
 if settings.DEBUG:
