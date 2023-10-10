@@ -37,6 +37,10 @@ a {
   border-bottom: 1px solid #333;
 }
 
+.nav h1 {
+  z-index: 3;
+}
+
 .nav_list {
   display: flex;
   gap: 3rem;
@@ -75,6 +79,17 @@ a {
   color: #fff;
 }
 
+.burger {
+  width: 50px;
+  height: 50px;
+  z-index: 2;
+  display: none;
+}
+
+.burger img {
+  width: 100%;
+}
+
 .hero {
   width: 95%;
   margin: 0 auto;
@@ -96,7 +111,6 @@ a {
 
 .hero_text {
   position: absolute;
-  top: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -229,6 +243,10 @@ a {
   border-top: 1px solid #333;
 }
 
+.category .card .card_text h2 {
+  font-size: 1.5rem;
+}
+
 .trending {
   background: #fff;
   /*  box-shadow: 0px 12px 60px 0px rgba(0, 0, 0, 0.25); */
@@ -270,7 +288,7 @@ a {
   bottom: 0;
   padding: 1rem 0.5rem;
   width: 100%;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.6);
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -387,7 +405,7 @@ footer .nav {
   padding: 0 4rem;
 }
 
-footer .nav_list {
+.footer_nav_links {
   display: flex;
   gap: 3rem;
   align-items: center;
@@ -403,7 +421,7 @@ footer .nav ul li {
   cursor: pointer;
 }
 
-footer .nav_list button {
+.footer_nav_links button {
   background: transparent;
   padding: 0.5rem 1.5rem;
   border: 1px solid #000;
@@ -426,7 +444,7 @@ footer .flex {
 footer .footer_links {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 3rem;
+  gap: 2rem;
   place-items: center;
 }
 
@@ -837,4 +855,174 @@ footer .copyright h2 {
   padding: 0.6rem;
   margin: 1rem 0;
   border: 1px solid #000;
+}
+
+/* Responsiveness */
+@media (max-width: 1050px) {
+  .trending .trending_card .card_text {
+    font-size: 0.6rem;
+  }
+
+  .trending .trending_card .card_text button {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.5rem;
+  }
+
+  footer .footer_links {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1000px) {
+  .category .card .card_text h2 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero_text h1 {
+    font-size: 2rem;
+  }
+
+  .hero_text button {
+    padding: 0.5rem 1rem;
+    font-size: 0.7rem;
+  }
+
+  .about_us_text h1,
+  .category h1,
+  .trending h1,
+  .contact h1 {
+    font-size: 1.5rem;
+  }
+
+  .about_us_text p {
+    font-size: 0.7rem;
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 850px) {
+  .nav_list {
+    position: fixed;
+    height: 100%;
+    background-color: #fff;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: translateX(100%);
+    transition: 300ms linear;
+    z-index: 2;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .active {
+    transform: translateX(0);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .active ul {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .category .grid, .trending .grid {
+    gap: 1.5rem;
+  }
+
+  .category .card .card_text h2 {
+    font-size: 0.7rem;
+  }
+
+  .trending .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer_nav_links {
+    display: none;
+  }
+}
+
+@media (max-width: 650px) {
+  .about_us .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about_us_text {
+    order: -1;
+    margin-bottom: 2rem;
+    border: 1px solid #000;
+  }
+
+  .category .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form h2 {
+    font-size: 1rem;
+  }
+
+  .contact .grid {
+    grid-template-columns: 1fr;
+  }
+
+  footer .flex {
+    padding: 2rem 0;
+  }
+
+  footer .footer_links {
+    grid-template-columns: 1fr;
+    place-items: flex-start;
+  }
+}
+
+@media (max-width: 450px) {
+  .nav {
+    padding: 0 2rem;
+  }
+
+  .hero_text h1 {
+    font-size: 1rem;
+  }
+
+  .hero_text {
+    gap: 1.5rem;
+  }
+
+  .hero_text button {
+    font-size: .5rem;
+    padding: .3rem .7rem;
+  }
+
+  .about_us, .category, .trending, .contact, footer {
+    margin-top: 4vh;
+  }
+
+  .about_us_text h1,
+  .category h1,
+  .trending h1,
+  .contact h1 {
+    font-size: 1.3rem;
+  }
+
+  .trending .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact .info .info_text {
+    gap: 1rem;
+  }
+
+  .contact .info h2 {
+    font-size: .7rem;
+  }
 }
