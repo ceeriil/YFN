@@ -1,6 +1,6 @@
 {% extends "base.html" %} {% block content %} {% load static %}
 
-<div>
+<div class="post_edit">
   <nav class="feed_nav">
     <div class="feed_profile">
       <a href="{% url 'users-profile' %}">
@@ -14,7 +14,7 @@
     </div>
   </nav>
 
-  <div>
+  <div class="post_edit_card">
     <form method="POST">
       {% csrf_token %} {{ form }}
       <input class="btn-primary" type="submit" value="Save" />

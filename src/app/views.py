@@ -116,7 +116,7 @@ def post_edit(request, pk):
         form = PostUpdateForm(request.POST, instance=post)
         if form.is_valid():
             form.save()
-            return redirect('blog-post-detail', pk=post.id)
+            return redirect('app:post-detail', pk=post.id)
     else:
         form = PostUpdateForm(instance=post)
     context = {

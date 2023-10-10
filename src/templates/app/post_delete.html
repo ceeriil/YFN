@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block content %} {% load static %}
+
+<div>
+  <div class="signup_bg login_bg">
+    <div class="signup_form login_form">
+      <h3>Are you sure you want to delete post?</h3>
+      <p>If you delete this post you can't undo it</p>
+      <form method="POST">
+        {% csrf_token %}
+        <a class="btn-primary" href="{% url 'app:post-detail' pk=post.id %}"
+          >Cancel</a
+        >
+        <input class="btn-primary" type="submit" value="Confirm" />
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}

@@ -49,8 +49,18 @@
         </div>
         <div class="btn_container">
           {% if post.author == request.user %}
-          <span><a class="btn-primary" href="">Delete</a></span>
-          <span><a class="btn-primary" href="">Edit</a></span>
+          <span
+            ><a
+              class="btn-primary"
+              href="{% url 'app:post-delete' pk=post.id %}"
+              >Delete</a
+            ></span
+          >
+          <span
+            ><a class="btn-primary" href="{% url 'app:post-edit' pk=post.id %}"
+              >Edit</a
+            ></span
+          >
           {% endif %}
         </div>
       </div>
