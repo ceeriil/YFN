@@ -1,3 +1,4 @@
+{% load static %}
 <nav class="nav">
   <h1>YFN</h1>
   <div class="nav_list">
@@ -18,4 +19,13 @@
     </button>
     {% endif %}
   </div>
+  <div class="burger">
+    <img src="{% static 'app/img/burger-menu.svg' %}" alt="" />
+  </div>
 </nav>
+
+<script>
+  const burger = document.querySelector(".burger");
+  const nav = document.querySelector(".nav_list");
+  burger.addEventListener("click", () => nav.classList.toggle('active'));
+</script>

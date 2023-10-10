@@ -43,8 +43,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "crispy_forms",
-    "tailwind",
-    'theme',
+    # "tailwind",
+    # 'theme',
     'users.apps.UsersConfig',
     MAIN_APP,
 ]
@@ -114,7 +114,7 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-TAILWIND_APP_NAME = 'theme'
+# TAILWIND_APP_NAME = 'theme'
 
 INTERNAL_IPS = [
     "127.0.0.1",
