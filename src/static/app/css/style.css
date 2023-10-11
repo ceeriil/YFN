@@ -84,6 +84,7 @@ a {
   height: 50px;
   z-index: 2;
   display: none;
+  cursor: pointer;
 }
 
 .burger img {
@@ -668,6 +669,7 @@ footer .copyright h2 {
   height: 100vh;
   position: fixed;
   padding-top: 1rem;
+  transition: all 300ms;
 }
 
 .left_side .links {
@@ -812,7 +814,7 @@ footer .copyright h2 {
 }
 
 .profile > div {
-  padding: 1rem 2rem;
+  padding: 1rem;
 }
 
 .profile .about h2 {
@@ -926,13 +928,60 @@ footer .copyright h2 {
 
 .img-thumbnail {
   border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.blog_img-thumbnail {
+  border-radius: 50%;
   width: 50px;
   height: 50px;
   object-fit: cover;
 }
 
+.left_nav {
+  display: flex;
+  gap: 1rem;
+}
+
 .img-thumbnail img {
   width: 100%;
+}
+
+.profile {
+  display: flex;
+}
+
+.left_profile {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+}
+
+.left_profile_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+  width: 100%;
+}
+
+.profile_name {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.left_profile_content > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.profile_category {
+  font-weight: 600;
+  font-size: 1rem;
 }
 
 /* Responsiveness */
@@ -954,6 +1003,11 @@ footer .copyright h2 {
 
   footer .footer_links {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  .left_profile_content > div {
+    flex-direction: column;
+    gap: .3rem;
   }
 }
 
@@ -1012,8 +1066,16 @@ footer .copyright h2 {
     z-index: 2;
   }
 
+  .left_side {
+    transform: translateX(-100%);
+  }
+
   .burger {
     display: flex;
+  }
+
+  .left_side_active {
+    transform: translateX(0);
   }
 
   .active {
@@ -1049,6 +1111,34 @@ footer .copyright h2 {
   .signup_grid {
     grid-template-columns: 1fr;
     padding: 4rem;
+  }
+
+  .main_feed {
+    width: 100%;
+  }
+
+  .feed .search {
+    margin: 2rem 1rem;
+  }
+
+  .profile {
+    flex-direction: column;
+  }
+
+  .left_profile_content > div {
+    flex-direction: row;
+  }
+
+  .left_profile_content {
+    align-items: flex-start;
+  }
+
+  .main_feed {
+    margin-left: 0;
+  }
+
+  .feed_nav {
+    padding: 0.5rem 2rem;
   }
 }
 

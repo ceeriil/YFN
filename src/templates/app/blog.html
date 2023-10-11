@@ -2,14 +2,19 @@
 
 <div>
   <nav class="feed_nav">
-    <div class="feed_profile">
-      <a href="{% url 'users-profile' %}">
-        <img
-          class="img-thumbnail"
-          src="{{ user.profilemodel.image.url }}"
-          alt=""
-        />
-      </a>
+    <div class="left_nav">
+      <div class="burger">
+        <img src="{% static 'app/img/burger-menu.svg' %}" alt="" />
+      </div>
+      <div class="feed_profile">
+        <a href="{% url 'users-profile' %}">
+          <img
+            class="blog_img-thumbnail"
+            src="{{ user.profilemodel.image.url }}"
+            alt=""
+          />
+        </a>
+      </div>
     </div>
     <div class="feed_logout">
       <button>
@@ -97,6 +102,10 @@
   <div id="overlay" class="overlay"></div>
 </div>
 <script>
+  const burger = document.querySelector(".burger");
+  const nav = document.querySelector(".left_side");
+  burger.addEventListener("click", () => nav.classList.toggle('left_side_active'));
+
   // Function to open the modal
   function openModal() {
     var modal = document.querySelector(".right_side");
