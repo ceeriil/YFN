@@ -5,7 +5,7 @@
     <div class="signup_form login_form">
       <h3>Are you sure you want to delete post?</h3>
       <p>If you delete this post you can't undo it</p>
-      <form method="POST">
+      <form method="POST" class="delete_post">
         {% csrf_token %}
         <a class="btn-primary" href="{% url 'app:post-detail' pk=post.id %}"
           >Cancel</a

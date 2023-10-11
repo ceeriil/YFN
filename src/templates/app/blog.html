@@ -5,10 +5,10 @@
     <div class="feed_profile">
       <a href="{% url 'users-profile' %}">
         <img
-        class="img-thumbnail"
-        src="{{ user.profilemodel.image.url }}"
-        alt=""
-      />
+          class="img-thumbnail"
+          src="{{ user.profilemodel.image.url }}"
+          alt=""
+        />
       </a>
     </div>
     <div class="feed_logout">
@@ -45,13 +45,14 @@
           <img src="{{ post.author.profilemodel.image.url }}" alt="" />
           <h1>{{ post.author.username }}</h1>
         </div>
-        <div class="card_content">
-          <a href="{% url 'app:post-detail' pk=post.id %}">
-            <h3>{{ post.title }}</h3></a
-          >
-          <p>{{ post.content }}</p>
-          <small>{{post.date_created}}</small>
-        </div>
+        <a href="{% url 'app:post-detail' pk=post.id %}">
+          <div class="card_content">
+            <h3>{{ post.title }}</h3>
+
+            <p>{{ post.content }}</p>
+            <small>{{post.date_created}}</small>
+          </div>
+        </a>
         <div class="card_stats">
           <div class="comment">
             <img src="{% static 'app/img/comment.svg' %}" alt="" />
@@ -77,19 +78,59 @@
 
       {% endfor %}
     </div>
-
-    <div class="right_side bg-black">
-      <div class="search">
-        <input type="search" placeholder="search..." />
-      </div>
-
-      <div class="addpost">
-        <form method="POST">
-          {% csrf_token %} {{form}}
-          <input class="btn-primary" type="submit" value="Post" />
-        </form>
-      </div>
+    <div class="search">
+      <input type="search" placeholder="search..." />
     </div>
   </div>
+  <div class="right_side bg-black">
+    <div class="addpost">
+      <span class="close" id="closeModalBtn">&times;</span>
+      <form method="POST">
+        {% csrf_token %} {{form}}
+        <input class="btn-primary" type="submit" value="Post" />
+      </form>
+    </div>
+  </div>
+  <div class="add_post_button">
+    <p>+</p>
+  </div>
+  <div id="overlay" class="overlay"></div>
 </div>
+<script>
+  // Function to open the modal
+  function openModal() {
+    var modal = document.querySelector(".right_side");
+    var overlay = document.querySelector(".overlay");
+    modal.style.display = "block";
+    overlay.style.display = "block";
+
+    overlay.addEventListener("click", function () {
+      closeModal();
+    });
+  }
+
+  // Function to close the modal
+  function closeModal() {
+    var modal = document.querySelector(".right_side");
+    var overlay = document.querySelector(".overlay");
+    modal.style.display = "none";
+    overlay.style.display = "none";
+
+    overlay.removeEventListener("click", function () {
+      closeModal();
+    });
+  }
+
+  // Add a click event listener to the button with class "add_post_button"
+  document
+    .querySelector(".add_post_button")
+    .addEventListener("click", function () {
+      openModal();
+    });
+
+  // Add a click event listener to the close button with class "close" inside the modal
+  document.querySelector(".close").addEventListener("click", function () {
+    closeModal();
+  });
+</script>
 {% endblock content %}
