@@ -1,36 +1,27 @@
 {% extends "base.html" %} {% block content %} {% load static %}
 
 <div>
-  <nav class="feed_nav">
-    <div class="feed_profile">
-      <a href="{% url 'users-profile' %}">
-        <img src="{% static 'app/img/user_pic.svg' %}" alt="" />
-      </a>
-    </div>
-    <div class="feed_logout">
-      <button>
-        <a href="{%url 'users-logout'%}">Logout</a>
-      </button>
-    </div>
-  </nav>
-
-  <div class="feed profile">
-    <div class="left_side">
-      <div>
+  <div class="profile">
+    <div class="left_profile">
+      <div class="left_profile_content">
         <img
           class="img-thumbnail"
           src="{{ user.profilemodel.image.url }}"
           alt=""
         />
         <p class="profile_name">{{ user.username }}</p>
+        <div>
+          <p>1k followers</p>
+          <p>12 following</p>
+        </div>
         <p class="profile_category">{{user.profilemodel.category}}</p>
         <button type="button" class="btn-primary">
-          <a href="{% url 'profile_edit' %}">Edit Profile</a>
+          {% comment %} <a href="{% url 'profile_edit' %}">Edit Profile</a> {% endcomment %}
         </button>
       </div>
     </div>
 
-    <div class="right_side">
+    <div class="right_profile">
       <div class="about">
         <h2>About</h2>
         <p>
