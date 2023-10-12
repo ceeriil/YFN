@@ -819,6 +819,14 @@ footer .copyright h2 {
   cursor: pointer;
 }
 
+.login_form .logout {
+  background: #000;
+  color: #fff;
+  border: 0;
+  padding: .5rem 1rem;
+  cursor: pointer;
+}
+
 /* -------- Profile Page ------- */
 .feed.profile {
   display: grid;
