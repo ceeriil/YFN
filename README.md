@@ -96,7 +96,7 @@ Welcome to the YFN community – where every creator's voice is heard and valued
 
 ### Fixes Needed
 
-- Fix stylings for all the pages
+- Fix stylings for all the pages 
 - Make add post in a modal
 
 ### Features Needed
