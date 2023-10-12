@@ -1,22 +1,29 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from .forms import SignUpForm, UserUpdateForm, ProfileUpdateForm
-  
+
 # Create your views here.
+
+
 def sign_up(request):
-     if request.method == 'POST':
+    if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('users-login')
-     else:
+    else:
         form = SignUpForm()
-     context ={
+    context = {
         'form': form
     }
-     return render(request, 'users/signup.html', context)
+    return render(request, 'users/signup.html', context)
+
 
 def profile(request):
+    return render(request, 'users/profile.html')
+
+
+def edit_profile(request):
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST or None, instance=request.user)
         p_form = ProfileUpdateForm(
@@ -32,6 +39,4 @@ def profile(request):
         'u_form': u_form,
         'p_form': p_form,
     }
-    return render(request, 'users/profile.html', context)
-
-
+    return render(request, 'users/profile_edit.html', context)
