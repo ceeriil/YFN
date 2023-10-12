@@ -11,7 +11,7 @@
     </ul>
     {% if request.user.is_authenticated %}
     <button>
-      <a href="#">Logout</a>
+      <a href="{% url 'blog' %}">Go to App</a>
     </button>
     {% else %}
     <button>
@@ -27,5 +27,5 @@
 <script>
   const burger = document.querySelector(".burger");
   const nav = document.querySelector(".nav_list");
-  burger.addEventListener("click", () => nav.classList.toggle('active'));
+  burger.addEventListener("click", () => nav.classList.toggle("active"));
 </script>
