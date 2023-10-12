@@ -41,12 +41,12 @@
           src="{{ post.author.profilemodel.image.url }}"
           alt="profile-img"
         />
-        <div>
+       
           <small>{{ post.date_created }}</small>
           <hr />
           <h4>{{ post.title }}</h4>
           <p>{{ post.content }}</p>
-        </div>
+       
         <div class="btn_container">
           {% if post.author == request.user %}
           <span
