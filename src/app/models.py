@@ -12,6 +12,15 @@ class PostModel(models.Model):
     class Meta:
         ordering = ('-date_created',)
 
+    def comment_count(self):
+        return self.comment_set.all().count()
+
+    def comments(self):
+        return self.comment_set.all()
+    
+    def like_count(self):
+        return self.like_set.all().count()
+
     def __str__(self):
         return self.title
     
@@ -25,5 +34,12 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.content
+
+class Like(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(PostModel, on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ('user', 'post')
 
    

@@ -41,12 +41,65 @@
           src="{{ post.author.profilemodel.image.url }}"
           alt="profile-img"
         />
-       
-          <small>{{ post.date_created }}</small>
-          <hr />
-          <h4>{{ post.title }}</h4>
-          <p>{{ post.content }}</p>
-       
+        <small>{{ post.author.username }}</small>
+        <small>{{ post.date_created }}</small>
+        <hr />
+        <h4>{{ post.title }}</h4>
+        <p>{{ post.content }}</p>
+
+        <div class="card_stats">
+          <div class="comment">
+            <img src="{% static 'app/img/comment.svg' %}" alt="" />
+            <h4>{{ post.comment_count }}</h4>
+          </div>
+
+          <div class="repost">
+            <img src="{% static 'app/img/repost.svg' %}" alt="" />
+            <h4>0</h4>
+          </div>
+
+          <div class="like">
+            <form method="POST" class="like_form">
+              {% csrf_token %} {% if liked %}
+              <button type="submit" name="unlike" class="btn-transparent">
+                <img src="{% static 'app/img/like.svg' %}" alt="" />
+              </button>
+              {% else %}
+              <button type="submit" name="like" class="btn-transparent">
+                <img src="{% static 'app/img/like.svg' %}" alt="" />
+              </button>
+              {% endif %}
+              <h4 class="ml-2">{{ likes.count }}</h4>
+            </form>
+          </div>
+        </div>
+
+        <div>
+          <div
+            style="height: 250px; overflow-y: scroll"
+            class="card comment_container"
+          >
+            {% for comment in post.comments %}
+
+            <div class="comment_card">
+              <div>
+                <img
+                  src="{{comment.user.profilemodel.image.url}}"
+                  class="img-thumbnail"
+                  alt="user image"
+                />
+                <div>{{ comment.user.username }}</div>
+              </div>
+              <div class="comment_content">{{ comment.content }}</div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        <form method="POST">
+          {% csrf_token %} {{ c_form }}
+          <input class="btn btn-primary btn-sm" type="submit" value="Comment" />
+        </form>
+
         <div class="btn_container">
           {% if post.author == request.user %}
           <span

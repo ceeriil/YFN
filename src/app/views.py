@@ -3,8 +3,8 @@ from django.views.generic import TemplateView
 from app.vars import NAME
 from django.shortcuts import render, redirect, get_object_or_404
 import json
-from .models import PostModel
-from .forms import PostModelForm, PostUpdateForm
+from .models import PostModel, Like
+from .forms import PostModelForm, PostUpdateForm, CommentForm
 from django.conf import settings
 
 class HomeView(TemplateView):
@@ -39,14 +39,37 @@ def blog(request):
 
     return render(request, f"{NAME}/blog.html", context)
 
-
-
 def post_detail(request, pk):
     post = PostModel.objects.get(id=pk)
+    if request.method == 'POST':
+        c_form = CommentForm(request.POST)
+        if 'like' in request.POST:
+            Like.objects.create(user=request.user, post=post)
+            return redirect('app:post-detail', pk=post.id)
+        elif 'unlike' in request.POST:
+            Like.objects.filter(user=request.user, post=post).delete()
+            return redirect('app:post-detail', pk=post.id)
+        else:
+            if c_form.is_valid():
+                instance = c_form.save(commit=False)
+                instance.user = request.user
+                instance.post = post
+                instance.save()
+                return redirect('app:post-detail', pk=post.id)
+    else:
+        c_form = CommentForm()
+
+    likes = Like.objects.filter(post=post)
+    liked = True if request.user in [like.user for like in likes] else False
+
     context = {
         'post': post,
+        'c_form': c_form,
+        'likes': likes,
+        'liked': liked
     }
     return render(request, 'app/post_detail.html', context)
+
 
 def post_edit(request, pk):
     post = PostModel.objects.get(id=pk)

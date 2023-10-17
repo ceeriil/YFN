@@ -61,17 +61,17 @@
         <div class="card_stats">
           <div class="comment">
             <img src="{% static 'app/img/comment.svg' %}" alt="" />
-            <!-- <h4>45</h4> -->
+            <h4>{{ post.comment_count }}</h4>
           </div>
 
           <div class="repost">
             <img src="{% static 'app/img/repost.svg' %}" alt="" />
-            <!-- <h4>20</h4> -->
+            <h4>0</h4>
           </div>
 
           <div class="like">
             <img src="{% static 'app/img/like.svg' %}" alt="" />
-            <!-- <h4>5k</h4> -->
+            <h4>0</h4>
           </div>
 
           <div class="share">
@@ -104,7 +104,9 @@
 <script>
   const burger = document.querySelector(".burger");
   const nav = document.querySelector(".left_side");
-  burger.addEventListener("click", () => nav.classList.toggle('left_side_active'));
+  burger.addEventListener("click", () =>
+    nav.classList.toggle("left_side_active")
+  );
 
   // Function to open the modal
   function openModal() {
