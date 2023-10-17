@@ -1,18 +1,7 @@
 {% extends "base.html" %} {% block content %} {% load static %}
 
 <div>
-  <nav class="feed_nav">
-    <div class="feed_profile">
-      <a href="{% url 'app:author-profile' username=user.username %}">
-        <img src="{% static 'app/img/user_pic.svg' %}" alt="" />
-      </a>
-    </div>
-    <div class="feed_logout">
-      <button>
-        <a href="{%url 'users-logout'%}">Logout</a>
-      </button>
-    </div>
-  </nav>
+  {% include 'blognav.html' %}
 
   <div class="feed">
     <div class="left_side">

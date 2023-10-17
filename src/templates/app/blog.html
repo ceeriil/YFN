@@ -1,27 +1,7 @@
 {% extends "base.html" %} {% block content %} {% load static %}
 
 <div>
-  <nav class="feed_nav">
-    <div class="left_nav">
-      <div class="burger">
-        <img src="{% static 'app/img/burger-menu.svg' %}" alt="" />
-      </div>
-      <div class="feed_profile">
-        <a href="{% url 'app:author-profile' username=user.username %}">
-          <img
-            class="blog_img-thumbnail"
-            src="{{ user.profilemodel.image.url }}"
-            alt=""
-          />
-        </a>
-      </div>
-    </div>
-    <div class="feed_logout">
-      <button>
-        <a href="{%url 'users-logout'%}">Logout</a>
-      </button>
-    </div>
-  </nav>
+  {% include 'blognav.html' %}
 
   <div class="feed">
     <div class="left_side">
