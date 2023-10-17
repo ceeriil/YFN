@@ -2,7 +2,7 @@
 
 <div>
   <div class="back">
-    <a href="{%url 'users-profile' %}">
+    <a href="{% url 'app:author-profile' username=user.username %}">
       <h5>back</h5>
     </a>
   </div>

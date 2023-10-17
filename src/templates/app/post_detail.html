@@ -3,7 +3,7 @@
 <div>
   <nav class="feed_nav">
     <div class="feed_profile">
-      <a href="{% url 'users-profile' %}">
+      <a href="{% url 'app:author-profile' username=user.username %}">
         <img src="{% static 'app/img/user_pic.svg' %}" alt="" />
       </a>
     </div>
