@@ -6,6 +6,8 @@ import json
 from .models import PostModel, Like
 from .forms import PostModelForm, PostUpdateForm, CommentForm
 from django.conf import settings
+from django.contrib.auth.models import User
+from users.models import Follow
 
 class HomeView(TemplateView):
     template_name = f"{NAME}/home.html"
@@ -96,3 +98,33 @@ def post_delete(request, pk):
         'post': post
     }
     return render(request, 'app/post_delete.html', context)
+
+def author_profile(request, username):
+    author = get_object_or_404(User, username=username)
+    posts = PostModel.objects.filter(author=author)
+
+    followers_count = Follow.objects.filter(following=author).count()
+    following_count = Follow.objects.filter(follower=author).count()
+    followers = [follow.follower for follow in Follow.objects.filter(following=author)]
+    following = [follow.following for follow in Follow.objects.filter(follower=author)]
+
+    if request.method == 'POST':
+        if 'follow' in request.POST:
+            Follow.objects.create(follower=request.user, following=author)
+        elif 'unfollow' in request.POST:
+            Follow.objects.filter(follower=request.user, following=author).delete()
+
+        return redirect('app:author-profile', username=username)
+
+    is_following = Follow.objects.filter(follower=request.user, following=author).exists()
+
+    context = {
+        'author': author,
+        'posts': posts,
+        'is_following': is_following,
+        'followers_count': followers_count,
+        'following_count': following_count,
+        'followers': followers,
+        'following': following,
+    }
+    return render(request, 'app/author_profile.html', context)

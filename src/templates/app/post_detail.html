@@ -41,7 +41,9 @@
           src="{{ post.author.profilemodel.image.url }}"
           alt="profile-img"
         />
-        <small>{{ post.author.username }}</small>
+        <a href="{% url 'app:author-profile' username=post.author.username %}">
+          {{ post.author.username }}
+        </a>
         <small>{{ post.date_created }}</small>
         <hr />
         <h4>{{ post.title }}</h4>
@@ -88,7 +90,11 @@
                   class="img-thumbnail"
                   alt="user image"
                 />
-                <div>{{ comment.user.username }}</div>
+                <a
+                  href="{% url 'app:author-profile' username=comment.user.username %}"
+                >
+                  {{ comment.user.username }}
+                </a>
               </div>
               <div class="comment_content">{{ comment.content }}</div>
             </div>

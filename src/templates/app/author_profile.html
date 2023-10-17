@@ -1,0 +1,66 @@
+{% extends "base.html" %} {% block content %}
+<div>
+  <div class="profile">
+    <div class="left_profile">
+      <div class="left_profile_content">
+        <img
+          class="img-thumbnail"
+          src="{{ author.profilemodel.image.url }}"
+          alt=""
+        />
+        <p class="profile_name">{{ author.username }}</p>
+        <div>
+          <p>{{ followers_count }} followers</p>
+          <p>{{ following_count }} following</p>
+        </div>
+        <p class="profile_category">{{ author.profilemodel.category }}</p>
+        {% if user.username != author.username %}
+        <form method="POST">
+          {% csrf_token %} {% if is_following %}
+          <button type="submit" name="unfollow" class="btn-primary">
+            Unfollow
+          </button>
+          {% else %}
+          <button type="submit" name="follow" class="btn-primary">
+            Follow
+          </button>
+          {% endif %}
+        </form>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="right_profile">
+      <div class="about">
+        <h2>About</h2>
+        <p>
+          Hello there! I'm a passionate explorer of the digital realm, always on
+          the lookout for new adventures in the world of technology and
+          creativity. By day, I'm a code-wrangling wizard, crafting elegant
+          solutions to complex problems. But when the sun sets, you'll often
+          find me lost in the pages of a good book or exploring the great
+          outdoors.
+        </p>
+        <p>
+          I have a deep love for art, music, and all things nerdy. Whether it's
+          tinkering with gadgets, strumming my guitar, or embarking on epic
+          gaming quests, I'm all about embracing my inner geek. I'm a firm
+          believer in the power of knowledge and lifelong learning, so I'm
+          constantly seeking new skills to add to my ever-expanding toolkit.
+        </p>
+        <p>
+          When I'm not in front of a screen, I enjoy traveling to far-off lands,
+          savoring exotic cuisines, and meeting fascinating people from all
+          walks of life. Life's too short to stay in one place, right? Above
+          all, I value kindness, empathy, and making meaningful connections.
+        </p>
+        <p>
+          So, let's connect and share our stories – because life's journey is so
+          much richer when we travel it together!" Feel free to use or modify
+          this text as needed for your own "About Me" section.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
