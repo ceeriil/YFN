@@ -1,18 +1,7 @@
 {% extends "base.html" %} {% block content %} {% load static %}
 
 <div>
-  <nav class="feed_nav">
-    <div class="feed_profile">
-      <a href="{% url 'users-profile' %}">
-        <img src="{% static 'app/img/user_pic.svg' %}" alt="" />
-      </a>
-    </div>
-    <div class="feed_logout">
-      <button>
-        <a href="{%url 'users-logout'%}">Logout</a>
-      </button>
-    </div>
-  </nav>
+  {% include 'blognav.html' %}
 
   <div class="feed">
     <div class="left_side">
@@ -35,22 +24,29 @@
     </div>
 
     <div class="main_feed main_feed_details">
-      <div class="post_details_card">
-        <img
-          class="img-thumbnail"
-          src="{{ post.author.profilemodel.image.url }}"
-          alt="profile-img"
-        />
-        <a href="{% url 'app:author-profile' username=post.author.username %}">
-          {{ post.author.username }}
+      <div class="back">
+        <a href="{%url 'blog' %}">
+          <h5>back</h5>
         </a>
+      </div>
+      <div class="post_details_card">
+        <div class="post_details_profile">
+          <img
+            class="img-thumbnail"
+            src="{{ post.author.profilemodel.image.url }}"
+            alt="profile-img"
+          />
+          <a href="{% url 'app:author-profile' username=post.author.username %}">
+            {{ post.author.username }}
+          </a>
+        </div>
         <small>{{ post.date_created }}</small>
         <hr />
         <h4>{{ post.title }}</h4>
         <p>{{ post.content }}</p>
 
         <div class="card_stats">
-          <div class="comment">
+          <div class="comment" id="comment">
             <img src="{% static 'app/img/comment.svg' %}" alt="" />
             <h4>{{ post.comment_count }}</h4>
           </div>
@@ -76,35 +72,40 @@
           </div>
         </div>
 
-        <div>
-          <div
-            style="height: 250px; overflow-y: scroll"
-            class="card comment_container"
-          >
-            {% for comment in post.comments %}
-
-            <div class="comment_card">
-              <div>
-                <img
-                  src="{{comment.user.profilemodel.image.url}}"
-                  class="img-thumbnail"
-                  alt="user image"
-                />
-                <a
-                  href="{% url 'app:author-profile' username=comment.user.username %}"
-                >
-                  {{ comment.user.username }}
-                </a>
+        <div class="comment_box">
+          <div class="comment_section">
+            <h2>Comments</h1>
+            <div
+              style="height: 250px; overflow-y: scroll"
+              class="card comment_container"
+            >
+              {% for comment in post.comments %}
+              <a
+                href="{% url 'app:author-profile' username=comment.user.username %}"
+              >
+              <div class="comment_card">
+                
+                <div class="comment_profile">
+                  <img
+                    src="{{comment.user.profilemodel.image.url}}"
+                    class="img-thumbnail"
+                    alt="user image"
+                  />
+                  
+                    {{ comment.user.username }}
+                </div>
+              </a>
+                <div class="comment_content">{{ comment.content }}</div>
               </div>
-              <div class="comment_content">{{ comment.content }}</div>
+              {% endfor %}
             </div>
-            {% endfor %}
           </div>
+          <form method="POST" class="comment_form">
+            {% csrf_token %} {{ c_form }}
+            <input class="btn btn-primary btn-sm" type="submit" value="Comment" />
+          </form>
+
         </div>
-        <form method="POST">
-          {% csrf_token %} {{ c_form }}
-          <input class="btn btn-primary btn-sm" type="submit" value="Comment" />
-        </form>
 
         <div class="btn_container">
           {% if post.author == request.user %}
@@ -126,4 +127,10 @@
     </div>
   </div>
 </div>
+<script>
+  const comment = document.getElementById('comment');
+  const commentSection = document.querySelector('.comment_box')
+  comment.addEventListener('click', () => commentSection.classList.toggle('open_comment'))
+  
+</script>
 {% endblock content %}

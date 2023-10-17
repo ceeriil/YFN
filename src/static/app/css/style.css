@@ -730,6 +730,16 @@ footer .copyright h2 {
   margin-left: 250px;
 }
 
+.back {
+  display: inline-block;
+  margin-bottom: 1rem;
+  background: #000;
+  color: #fff;
+  padding: .5rem 1rem;
+  height: fit-content;
+  position: fixed;
+}
+
 .main_feed .main_feed_card {
   display: flex;
   flex-direction: column;
@@ -737,6 +747,7 @@ footer .copyright h2 {
   padding: 1rem;
   border: 1px solid #ccc;
   margin-bottom: 1rem;
+  margin-top: 3rem;
 }
 
 .main_feed_card .card_head,
@@ -744,7 +755,7 @@ footer .copyright h2 {
 .card_stats {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: .5rem;
 }
 
 .main_feed .main_feed_card .card_head img {
@@ -779,6 +790,7 @@ footer .copyright h2 {
 .feed .search input {
   padding: 0.5rem;
   outline: 0;
+  border: 1px solid #000;
 }
 
 .right_side {
@@ -912,6 +924,13 @@ footer .copyright h2 {
   border: 1px solid #000;
   padding: 1.5rem;
   width: 100%;
+  margin-top: 3rem;
+}
+
+.post_details_profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .main_feed_details {
@@ -935,19 +954,49 @@ footer .copyright h2 {
   width: 100%;
 }
 
+.comment_form {
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.comment_profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.comment_form input {
+  padding: 0.5rem 1rem;
+  outline: 0;
+  border: 1px solid #000;
+}
+
+.comment_section {
+  margin-top: 2rem;
+}
+
 .comment_card {
   padding: 0.5rem 1rem;
   display: grid;
-  grid-template-columns: 10% 90%;
   align-items: center;
+  margin-top: 0.5rem;
 }
 
 .comment_content {
-  margin-left: 1.5rem;
-  padding: 0.5rem 1rem;
-  height: 100%;
+  margin-top: 0.5rem;
+  padding: 1rem 2rem;
   background: #000;
   color: #fff;
+}
+
+.comment_box {
+  display: none;
+}
+
+.open_comment {
+  display: block;
 }
 
 .like_form {
@@ -970,6 +1019,10 @@ footer .copyright h2 {
   padding: 1rem;
   width: 100%;
   display: block;
+}
+
+.post_edit_card form {
+  margin-top: 3rem;
 }
 
 .delete_post {
@@ -1338,6 +1391,16 @@ footer .copyright h2 {
 
   .login_form {
     max-width: 95%;
+  }
+
+  .comment_form {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .comment_form input {
+    width: 100%;
   }
 }
 

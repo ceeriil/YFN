@@ -1,5 +1,10 @@
 {% extends "base.html" %} {% block content %}
 <div>
+  <div class="back">
+    <a href="{%url 'blog' %}">
+      <h5>back</h5>
+    </a>
+  </div>
   <div class="profile">
     <div class="left_profile">
       <div class="left_profile_content">
@@ -14,6 +19,9 @@
           <p>{{ following_count }} following</p>
         </div>
         <p class="profile_category">{{ author.profilemodel.category }}</p>
+        <button type="button" class="btn-primary">
+          <a href="{% url 'edit-profile' %}">Edit Profile</a>
+        </button>
         {% if user.username != author.username %}
         <form method="POST">
           {% csrf_token %} {% if is_following %}

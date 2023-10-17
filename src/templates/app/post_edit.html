@@ -1,20 +1,14 @@
 {% extends "base.html" %} {% block content %} {% load static %}
 
 <div class="post_edit">
-  <nav class="feed_nav">
-    <div class="feed_profile">
-      <a href="{% url 'users-profile' %}">
-        <img src="{% static 'app/img/user_pic.svg' %}" alt="" />
-      </a>
-    </div>
-    <div class="feed_logout">
-      <button>
-        <a href="{%url 'users-logout'%}">Logout</a>
-      </button>
-    </div>
-  </nav>
+  {% include 'blognav.html' %}
 
   <div class="post_edit_card">
+    <div class="back">
+      <a href="{%url 'app:post-detail' pk=post.id %}">
+        <h5>back</h5>
+      </a>
+    </div>
     <form method="POST">
       {% csrf_token %} {{ form }}
       <input class="btn-primary" type="submit" value="Save" />

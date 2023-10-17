@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from .forms import SignUpForm, UserUpdateForm, ProfileUpdateForm
+from django import template
 
+register = template.Library()
 # Create your views here.
 
 
@@ -40,3 +42,4 @@ def edit_profile(request):
         'p_form': p_form,
     }
     return render(request, 'users/profile_edit.html', context)
+
