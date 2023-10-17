@@ -730,6 +730,16 @@ footer .copyright h2 {
   margin-left: 250px;
 }
 
+.back {
+  display: inline-block;
+  margin-bottom: 1rem;
+  background: #000;
+  color: #fff;
+  padding: .5rem 1rem;
+  height: fit-content;
+  position: fixed;
+}
+
 .main_feed .main_feed_card {
   display: flex;
   flex-direction: column;
@@ -737,6 +747,7 @@ footer .copyright h2 {
   padding: 1rem;
   border: 1px solid #ccc;
   margin-bottom: 1rem;
+  margin-top: 3rem;
 }
 
 .main_feed_card .card_head,
@@ -779,6 +790,7 @@ footer .copyright h2 {
 .feed .search input {
   padding: 0.5rem;
   outline: 0;
+  border: 1px solid #000;
 }
 
 .right_side {
@@ -912,6 +924,7 @@ footer .copyright h2 {
   border: 1px solid #000;
   padding: 1.5rem;
   width: 100%;
+  margin-top: 3rem;
 }
 
 .post_details_profile {
@@ -1006,6 +1019,10 @@ footer .copyright h2 {
   padding: 1rem;
   width: 100%;
   display: block;
+}
+
+.post_edit_card form {
+  margin-top: 3rem;
 }
 
 .delete_post {
@@ -1381,7 +1398,7 @@ footer .copyright h2 {
     align-items: flex-start;
     gap: 0.5rem;
   }
-  
+
   .comment_form input {
     width: 100%;
   }

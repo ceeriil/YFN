@@ -44,6 +44,11 @@
     </div>
 
     <div class="main_feed">
+      <div class="back">
+        <a href="{%url 'users-login' %}">
+          <h5>back</h5>
+        </a>
+      </div>
       {% for post in posts %}
       <div class="main_feed_card">
         <div class="card_head">

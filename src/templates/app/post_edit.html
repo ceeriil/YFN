@@ -15,6 +15,11 @@
   </nav>
 
   <div class="post_edit_card">
+    <div class="back">
+      <a href="{%url 'app:post-detail' pk=post.id %}">
+        <h5>back</h5>
+      </a>
+    </div>
     <form method="POST">
       {% csrf_token %} {{ form }}
       <input class="btn-primary" type="submit" value="Save" />
