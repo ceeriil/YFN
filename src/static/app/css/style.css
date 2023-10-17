@@ -755,7 +755,7 @@ footer .copyright h2 {
 .card_stats {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: .5rem;
 }
 
 .main_feed .main_feed_card .card_head img {
