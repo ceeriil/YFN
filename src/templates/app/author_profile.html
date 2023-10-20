@@ -1,10 +1,12 @@
 {% extends "base.html" %} {% block content %}
 <div>
-  <div class="back">
+  {% include 'blognav.html' %}
+
+  <!--  <div class="back">
     <a href="{%url 'blog' %}">
       <h5>back</h5>
     </a>
-  </div>
+  </div> -->
   <div class="profile">
     <div class="left_profile">
       <div class="left_profile_content">

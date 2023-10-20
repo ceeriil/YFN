@@ -20,15 +20,11 @@
         <li>Artist</li>
         <li>Gossip</li>
         <li>Religion</li>
+        <li><a href="{% url 'app:home' %}">Home</a></li>
       </ul>
     </div>
 
     <div class="main_feed">
-      <div class="back">
-        <a href="{%url 'users-login' %}">
-          <h5>back</h5>
-        </a>
-      </div>
       {% for post in posts %}
       <div class="main_feed_card">
         <a href="{% url 'app:author-profile' username=user.username %}">
