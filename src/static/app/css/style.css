@@ -948,6 +948,19 @@ footer .copyright h2 {
   margin-top: 1rem;
 }
 
+.profile-links {
+  background: #000;
+  padding: 3rem 2rem;
+  color: #fff;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.profile-links p {
+  display: block;
+  margin: 1rem 0;
+}
+
 /* --Comment -- */
 .comment_container {
   border: 1px solid #000;
@@ -1094,7 +1107,7 @@ footer .copyright h2 {
   font-size: 1.5rem;
 }
 
-.left_profile_content > div {
+.left_profile_content .follower {
   display: flex;
   align-items: center;
   justify-content: center;
