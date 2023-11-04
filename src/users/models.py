@@ -17,3 +17,17 @@ class Follow(models.Model):
 
     class Meta:
         unique_together = ('follower', 'following')
+
+class ProfileDetails(models.Model):
+    location = models.CharField(max_length=500)
+    github = models.URLField(max_length=1000)
+    linkedin = models.URLField(max_length=1000)
+    website = models.URLField(max_length=500)
+    eemail = models.URLField(max_length=100)
+    biography = models.CharField(max_length=150)
+    about = models.CharField(max_length=200)
+
+    def _str_(self):
+        return '%s' %(self.ename)
+    class Meta:
+        db_table = 'ProfileDetails'

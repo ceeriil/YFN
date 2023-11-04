@@ -42,4 +42,11 @@ class Like(models.Model):
     class Meta:
         unique_together = ('user', 'post')
 
-   
+
+class Category(models.Model):
+    name = models.CharField(max_length=255)
+
+    def _str_(self):
+        return self.name
+    class Meta:
+        db_table = 'Category'
