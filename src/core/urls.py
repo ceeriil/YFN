@@ -26,6 +26,9 @@ urlpatterns = [
     path("", include(f"{MAIN_APP}.urls", namespace=MAIN_APP)),
     path('blog/', views.blog, name='blog'),
     path('', include('users.urls')),
+    
+    #For All Auth
+    path('accounts/', include('allauth.urls')),
 ]
 
 if settings.DEBUG:
