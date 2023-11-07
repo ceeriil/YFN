@@ -25,7 +25,7 @@ class ProfileDetails(models.Model):
     website = models.URLField(max_length=500)
     eemail = models.URLField(max_length=100)
     biography = models.CharField(max_length=150)
-    about = models.CharField(max_length=200)
+    about = models.CharField(max_length=200, default='Whats up? I am a developer with 3 years of experience')
 
     def _str_(self):
         return '%s' %(self.ename)
